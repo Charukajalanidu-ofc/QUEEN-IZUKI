@@ -67,19 +67,26 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 }
     } else if (connection === 'open') {
 
+
+
+
 console.log('Installing plugins 🔌... ')
+console.log('Plugins installed ✅')
+console.log('VAJIRA-MD connected ✅')  
+console.log('VAJIRA-MD NOW WORKING 📥')       
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
     require("./plugins/" + plugin);
   }
-});
+})
 console.log('Plugins installed ✅')
 await connectdb()
 await updb()
 console.log('QUEEN-IZUMI-MD connected ✅')
     }
   })
+  
 
   conn.ev.on('creds.update', saveCreds)
   conn.ev.on('messages.upsert', async (mek) => {
