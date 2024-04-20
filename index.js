@@ -33,7 +33,7 @@ async function MakeSession() {
         console.log("WRITING SESSION...");
         const {
           data
-        } = await axios(`https://paste.c-net.org/${X.SESSION_ID.split(':')[1]}`);
+        } = await axios(`https://paste.c-net.org/${config.SESSION_ID.split(':')[1]}`);
         await fs.writeFileSync("./session/creds.json", JSON.stringify(data));
         console.log("SESSION CREATED SUCCESSFULLY✅");
       } catch (err) {
