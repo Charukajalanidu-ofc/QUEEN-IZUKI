@@ -28,17 +28,19 @@ const l = console.log
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get,updb,updfb } = require("./lib/database")
 
 //===================SESSION============================
-if (!fs.existsSync(__dirname + '/session/creds.json')) {
-  if (config.SESSION_ID) {
-  const sessdata = config.SESSION_ID.replace("IZUMI=","")
-  const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
-  filer.download((err, data) => {
-    if (err) throw err
-    fs.writeFile(__dirname + '/session/creds.json', data, () => {
-console.log("Session download completed !!")
-    })
-  })
-}}
+async function MakeSession() {
+    try {
+        console.log("WRITING SESSION...");
+        const {
+          data
+        } = await axios(`https://paste.c-net.org/${X.SESSION_ID.split(':')[1]}`);
+        await fs.writeFileSync("./session/creds.json", JSON.stringify(data));
+        console.log("SESSION CREATED SUCCESSFULLY✅");
+      } catch (err) {
+        console.log(err);
+      }
+}
+MakeSession();
 // <<==========PORTS===========>>
 const express = require("express");
 const app = express();
