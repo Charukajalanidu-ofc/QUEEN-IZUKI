@@ -150,28 +150,7 @@ return false
 const reply = async(teks) => {
   return await conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
-conn.replyad = async (teks) => {
-  return await conn.sendMessage(from, { text: teks ,
-contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: mek })
-}
+
 const NON_BUTTON = true // Implement a switch to on/off this feature...
 conn.buttonMessage2 = async (jid, msgData,quotemek) => {
   if (!NON_BUTTON) {
@@ -188,49 +167,11 @@ CMD_ID_MAP.push({ cmdId: mainNumber, cmd: button.buttonId });
 
     if (msgData.headerType === 1) {
 const buttonMessage = `${msgData.text}\n\n🔢 Reply you want number,${result}\n${msgData.footer}`
-const textmsg = await conn.sendMessage(from, { text: buttonMessage ,
-  contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+const textmsg = await conn.sendMessage(from, { text: buttonMessage }, { quoted: quotemek || mek})
 await updateCMDStore(textmsg.key.id, CMD_ID_MAP);
     } else if (msgData.headerType === 4) {
 const buttonMessage = `${msgData.caption}\n\n🔢 Reply you want number,${result}\n${msgData.footer}`
-const imgmsg = await conn.sendMessage(jid, { image: msgData.image, caption: buttonMessage ,
-contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+const imgmsg = await conn.sendMessage(jid, { image: msgData.image, caption: buttonMessage },{ quoted: quotemek || mek})
 await updateCMDStore(imgmsg.key.id, CMD_ID_MAP);
     }
   }
@@ -287,47 +228,11 @@ CMD_ID_MAP.push({ cmdId: mainNumber, cmd: button.buttonId });
     if (msgData.headerType === 1) {
 const buttonMessage = `${msgData.text || msgData.caption}\n🔢 Reply you want number,${result}\
 \n\n${msgData.footer}`
-const textmsg = await conn.sendMessage(from, { text: buttonMessage ,contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+const textmsg = await conn.sendMessage(from, { text: buttonMessage }, { quoted: quotemek || mek})
 await updateCMDStore(textmsg.key.id, CMD_ID_MAP);
     } else if (msgData.headerType === 4) {
 const buttonMessage = `${msgData.caption}\n\n🔢 Reply you want number,${result}\n${msgData.footer}`
-const imgmsg = await conn.sendMessage(jid, { image: msgData.image, caption: buttonMessage ,contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+const imgmsg = await conn.sendMessage(jid, { image: msgData.image, caption: buttonMessage }, { quoted: quotemek || mek})
 await updateCMDStore(imgmsg.key.id, CMD_ID_MAP);
     }
   }
@@ -357,26 +262,7 @@ section.rows.forEach((row, rowIndex) => {
     });
 
     const listMessage = `${msgData.text}\n\n${msgData.buttonText},${result}\n${msgData.footer}`
-    const text = await conn.sendMessage(from, { text: listMessage ,
-contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://raw.githubusercontent.com/vihangayt0/ZeroTwo-Uploads/main/bbb61bc283cc1891a9a3c.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+    const text = await conn.sendMessage(from, { text: listMessage }, { quoted: quotemek || mek})
     await updateCMDStore(text.key.id, CMD_ID_MAP);
   }
 }
@@ -404,26 +290,7 @@ section.rows.forEach((row, rowIndex) => {
     });
 
     const listMessage = `${msgData.text}\n\n${msgData.buttonText},${result}\n${msgData.footer}`
-    const text = await conn.sendMessage(from, { text: listMessage, 
-contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: '🧚 ＱＵＥＥＮ -ＩＺＵＭＩ - ＭＤ 🧚',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://wa.me/94766943622" ,
-thumbnailUrl: 'https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg' ,
-renderLargerThumbnail: false,
-showAdAttribution: true
-}
-}}, { quoted: quotemek || mek})
+    const text = await conn.sendMessage(from, { text: listMessage }, { quoted: quotemek || mek})
     await updateCMDStore(text.key.id, CMD_ID_MAP);
   }
 }
