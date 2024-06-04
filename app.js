@@ -1,3 +1,4 @@
+/*
 {
     "name": "ＱＵＥＥＮ -ＩＺＵＭＩ - V1 WhatsApp Bot",
     "description": "This is a 3ʳᵈ Party Application software for WhatsApp with Many Feature & many Commands",
@@ -104,3 +105,4 @@
         }
     }
 }
+*/
