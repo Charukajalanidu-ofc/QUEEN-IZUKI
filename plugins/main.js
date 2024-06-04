@@ -158,7 +158,8 @@ const listMessage = {
  *📍Platform:* ${hostname}`,
   image : { url : config.LOGO} ,
   footer: config.FOOTER,
-  buttonText: "🔢 Reply below number,",	
+  buttonText: "🔢 Reply below number,",
+  sections,
 }
 
 return await conn.replyList(from, listMessage ,{ quoted : msg }) 
@@ -191,7 +192,7 @@ const listMessage = {
 return await conn.replyList(from, listMessage ,{ quoted : msg })
 }
 } catch (e) {
-reply('*Error !!*')
+reply('*Error !!*\n\n' + e )
 l(e)
 }
 })
