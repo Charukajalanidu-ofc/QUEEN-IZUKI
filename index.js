@@ -71,9 +71,9 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 
 
 console.log('Installing plugins 🔌... ')
-console.log('Plugins installed ✅')
+/*console.log('Plugins installed ✅')
 console.log('VAJIRA-MD connected ✅')  
-console.log('VAJIRA-MD NOW WORKING 📥')       
+console.log('VAJIRA-MD NOW WORKING 📥') */     
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
