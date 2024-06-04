@@ -3,7 +3,7 @@ const { cmd, commands } = require('../command')
 const { dBinary, eBinary } = require('../lib/binary')
 var os = require('os')
 
-cmd({
+/*cmd({
     pattern: "test",
     react: "👨‍💻",
     alias: [] ,
@@ -84,7 +84,7 @@ return await conn.replyList(from, listMessage ,{ quoted : msg })
 reply('*Error !!*')
 l(e)
 }
-})
+})*/
 
 cmd({
     pattern: "gitclone",
