@@ -27,8 +27,7 @@ const ownerNumber = ['94766943622']
 const l = console.log
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get,updb,updfb } = require("./lib/database")
 
-//===================SESSION============================
-async function MakeSession() {
+//===================SESSION===========================
 if (!fs.existsSync(__dirname + '/session/creds.json')) {
   if (config.SESSION_ID) {
   const sessdata = config.SESSION_ID.replace("IZUMI=","")
