@@ -30,7 +30,7 @@ var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get,updb
 //===================SESSION===========================
 if (!fs.existsSync(__dirname + '/session/creds.json')) {
   if (config.SESSION_ID) {
-  const sessdata = config.SESSION_ID.replace("IZUMI=","")
+  const sessdata = config.SESSION_ID
   const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
   filer.download((err, data) => {
     if (err) throw err
